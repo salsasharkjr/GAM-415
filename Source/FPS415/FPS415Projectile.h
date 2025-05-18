@@ -22,8 +22,42 @@ class AFPS415Projectile : public AActor
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
 	UProjectileMovementComponent* ProjectileMovement;
 
+
+
+	// Referencing ball mesh, materials, and random color generation
+
+	UPROPERTY(EditAnywhere)
+	UStaticMeshComponent* ballMesh;
+
+	UPROPERTY(EditAnywhere)
+	UMaterial* baseMat;
+
+	UPROPERTY()
+	FLinearColor randColor;
+
+	UPROPERTY(EditAnywhere)
+	UMaterialInterface* projMat;
+
+	UPROPERTY()
+	UMaterialInstanceDynamic* dmiMat;
+
+
+
 public:
 	AFPS415Projectile();
+
+
+
+
+	// Setting up BeginPlay event to generate new random color for decal and splatter every time event begins to play
+protected:
+	virtual void BeginPlay();
+
+
+
+
+public:
+
 
 	/** called when projectile hits something */
 	UFUNCTION()
