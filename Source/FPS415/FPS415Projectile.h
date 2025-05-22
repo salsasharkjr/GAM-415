@@ -9,6 +9,9 @@
 class USphereComponent;
 class UProjectileMovementComponent;
 
+// Include Niagara
+class UNiagaraSystem;
+
 UCLASS(config=Game)
 class AFPS415Projectile : public AActor
 {
@@ -40,6 +43,11 @@ class AFPS415Projectile : public AActor
 
 	UPROPERTY()
 	UMaterialInstanceDynamic* dmiMat;
+
+
+	// Include UProperty of Niagara System
+	UPROPERTY(EditAnywhere)
+	UNiagaraSystem* colorP;
 
 
 
